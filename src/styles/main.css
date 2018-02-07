@@ -1,0 +1,9 @@
+.zc {
+  width: 100%;
+  height: 100%;
+}
+.zc .zc-header {
+  width: 100%;
+  height: 50px;
+  background-color: #ccc;
+}

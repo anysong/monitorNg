@@ -7,13 +7,24 @@ angular.module('zc').config(['$locationProvider','$stateProvider',
 	console.log('222');
 	console.log('222');
 	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	console.log('222');
+	
 	
 	$stateProvider
 
 	  	.state('main', {
 	  		url: '/main',
-	  		template:'<div ng-bind="title">闭合111</div>',
-	  		controller: 'MainCtrl'
+	  		// template:'<div ng-bind="title">闭合111</div>',
+	  		controller: 'MainCtrl',
+	  		templateUrl: 'views/main/index.html'
 	  	})
 	
 }]);
