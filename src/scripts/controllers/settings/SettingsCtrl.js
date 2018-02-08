@@ -1,4 +1,3 @@
-angular.module('zc').controller('SettingsCtrl',[function(){
-	
+angular.module("zc").controller("SettingsCtrl",[function(){
 	console.log('SettingsCtrl');
 }]);
