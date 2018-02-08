@@ -19,13 +19,14 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	$stateProvider
 
 	  	.state('zc', {
-	  		'abstract': true,
+	  		abstract: true,   //抽象模版
 	  		url: BaseRouterUrl,
 	  		views :{
-	  			'zcMain@': {
+	  			'zcMain': {
 	  				controller: 'MainCtrl',
 	  				templateUrl: 'views/public/main.html'
 	  			}
+	  			
 	  		}
 	  	})
 	  	.state('zc.main', {
@@ -68,7 +69,7 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	  			}
 	  		}
 	  	})
-	  	.state('zc.main.settings.settings', {
+	  	.state('zc.main.settings.monitor', {
 	  		url: '/monitor',
 	  		views :{
 	  			'zcMainBodyMainContent': {
