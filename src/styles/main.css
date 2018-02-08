@@ -2,8 +2,13 @@
   width: 100%;
   height: 100%;
 }
-.zc .zc-header {
+.zc .zc-main .zc-main-header .zc-main-header-wrap {
   width: 100%;
   height: 50px;
   background-color: #ccc;
+}
+.zc .zc-main .zc-main-body .zc-main-body-wrap {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
 }
