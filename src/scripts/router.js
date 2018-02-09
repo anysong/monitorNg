@@ -1,7 +1,7 @@
 
 angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterProvider',
  function($locationProvider, $stateProvider, $urlRouterProvider){
-
+ 	console.log('config router');
  	// 需要配 <base href="/src/">
 	$locationProvider.html5Mode(true);
 	
