@@ -1,3 +1,8 @@
 .home {
-  background: #09aeb0;
+  width: 100%;
+  height: 100%;
+}
+.home .ui-home-content {
+  width: 100%;
+  height: 100%;
 }

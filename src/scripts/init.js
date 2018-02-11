@@ -1,4 +1,4 @@
-angular.module('zc').run(['$rootScope', function($rootScope){
+angular.module('zc').run(['$rootScope','$state', function($rootScope,$state){
 	/** 执行初始化 **/
 	console.log('run init');
 
@@ -21,4 +21,5 @@ angular.module('zc').run(['$rootScope', function($rootScope){
 		// window.location = '/console/login';
 		// window.location = 'https://www.sobot.com/console/login';
 	};
+
 }])

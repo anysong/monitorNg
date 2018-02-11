@@ -1,0 +1,21 @@
+.home-monitor {
+	width: 100%;
+	height: 100%;
+	.home-monitor-layout {
+		width: 100%;
+		height: 100%;
+		&::after {
+			content: '';
+			height: 0;
+			clear: both;
+			display: block;
+			visibility: hidden;
+		}
+		.home-monitor-layout-li {
+			width: 50%;
+			height: 50%;
+			border: 1px solid #3d4966;
+			float: left;
+		}
+	}
+}

@@ -10,11 +10,12 @@
 	<link rel="stylesheet" href="styles/home.css">
 	<link rel="stylesheet" href="styles/settings.css">
 
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/angular/angular.js"></script>
 	<script src="../node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
 </head>
 <body class="zc">
-	<div ui-view="zcMain" class="zc-main"></div>
+	<div ui-view="zcMain" class="ui-main"></div>
 
 	<!-- 入口／配置／路由 -->
 
@@ -24,7 +25,8 @@
 	<script src="scripts/init.js"></script>
 	
 
-	<!-- controllers -->
+	<!-- controllers/directives -->
 	<script src="tar/controllers.js"></script>
+	<script src="tar/directives.js"></script>
 </body>
 </html>

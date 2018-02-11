@@ -1,20 +1,64 @@
 .zc {
 	width:100%;
 	height: 100%;
-	.zc-main {
-		.zc-main-header {
-			.zc-main-header-wrap {
+	.ui-main {
+		height: 100%;
+		padding-bottom: 50px;
+		.ui-main-header {
+			.zc-main-header {
 				width: 100%;
 				height: 50px;
 				background-color: #ccc;
 			}
 		}
-		.zc-main-body {
-			.zc-main-body-wrap {
+		.ui-main-body {
+			width: 100%;
+			height: 100%;
+			.zc-main-body {
+				box-sizing: border-box;
 				width: 100%;
 				height: 100%;
 				background-color: #ffffff;
+				position: relative;
+				.ui-main-body-content {
+					height: 100%;
+					padding-left: 50px;
+				}
 			}
 		}
 	}
 }
+
+// 左侧导航 
+.zc-sidebar {
+	width: 50px;
+	height: 100%;
+	position: absolute;
+	border-right: 1px solid #ccc;
+	.zc-sidebar-list {
+		width: 100%;
+		height: 100%;
+		.zc-sidebar-list-li {
+			width: 50px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			border-bottom: 1px solid #ccc;
+			&:hover {
+				border-color: #09aeb0;
+			}
+			&.active {
+				background: #ccc;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

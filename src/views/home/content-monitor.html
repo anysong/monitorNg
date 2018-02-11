@@ -1,3 +1,10 @@
-<div>
-	zcMainBodyMainContent
+<div class="home-monitor">
+	<ul class="home-monitor-layout">
+		<li class="home-monitor-layout-li" ng-repeat="item in layoutList">
+			<span ng-bind="item.name"></span>
+			<div ng-if="item.type === 'bar'" zc-chart-bar></div>
+			<div ng-if="item.type === 'pie'" zc-chart-pie></div>
+			<div ng-if="item.type === 'line'" zc-chart-line></div>
+		</li>
+	</ul>
 </div>
