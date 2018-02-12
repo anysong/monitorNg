@@ -13,7 +13,7 @@ angular.module("zc").directive('zcChartLine',[function(){
 		'scope': {
 
 		},
-		'templateUrl': 'views/directives/zcChartLine.html',
+		'templateUrl': 'views/directives/zcLineChart.html',
 		link: link
 	}
 }])
