@@ -1,10 +1,12 @@
-angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope', function($scope,$state,$rootScope){
+angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','ChatServ','CallServ',
+	function($scope,$state,$rootScope,ChatServ,CallServ){
 
 	$scope.title = '1';
 	$scope.body = '2';
 	$scope.footer = '3';
-	console.log('MainCtrl');
 
+	CallServ.getCallStaffJobInfoListNG_all();
+	CallServ.xxxxx();
 
 	/** sidebarList **/
 	$scope.sidebarList = [
@@ -43,12 +45,6 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope', fun
 
 	init();
 }])
-angular.module("zc").controller("SettingsCtrl",[function(){
-	console.log('SettingsCtrl');
-}]);
-angular.module("zc").controller("SettingsMonitorCtrl", [function(){
-	console.log('SettingsMonitorCtrl');
-}])
 angular.module("zc").controller("HomeCtrl", [function(){
 	console.log('HomeCtrl');
 }]);
@@ -76,3 +72,9 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope',function($scope){
 	];
 
 }]);
+angular.module("zc").controller("SettingsCtrl",[function(){
+	console.log('SettingsCtrl');
+}]);
+angular.module("zc").controller("SettingsMonitorCtrl", [function(){
+	console.log('SettingsMonitorCtrl');
+}])

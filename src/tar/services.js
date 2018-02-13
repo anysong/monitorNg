@@ -1,33 +1,59 @@
-angular.module('zc').factory('BaseServ', [function(){
+angular.module('zc').factory('BaseServ', ['$q',function($q){
 	
-	console.log('b')
+	var that = {};
+
+	var query = function(data){
+		var opt = {
+			'method': data.method.toUpperCase() || 'GET',
+			'url': delUrl(data.url),
+			'headers': {}
+		};
+		/**  defer **/
+		var deferred = $q.defer();
+		/** deUrl处理url **/
+		function delUrl(url){
+			alert('处理'+ url)
+		};
+		// var delUrl = function(){
+		// 	alert('处理')
+		// };
+	};
+
+	that.query = query;
+	return that;
 }])
-angular.module('zc').factory('CallServ', [function(){
-	
-	
-	// var getUrl = {
- //        "getCallReportStatus":"basic-set/getCallReportStatus", //获取自定义字段状态
- //        "getCallDataReport":"call-report/getCallDataReport",
- //        "getCallReport":"call-report/getCallReport",
- //        "getBrokenLineCallReport":"call-report/getBrokenLineCallReport",
- //    };
+angular.module('zc').factory('CallServ', ['BaseServ',function(BaseServ){
+    var getUrl = {
+    	'getCallStaffJobInfoListNG_all': 'call-data/getCallStaffJobInfoListNG_all',
+    	'xxxxx': 'aaaaa'
+    };
+    var that = {};
+   for(var name in getUrl ){
+    	that[name] = (function(url){
+            return function(params){
+                var promise = BaseServ.query({
+                    method: 'GET',
+                    url: url,
+                    params: params
+                })
+                return promise
+            };
+        })(getUrl[name])
+    };
 
-
-
-    // // 获取整体列表数据
-    // var getCallStaffJobInfoListNGByAll = function(params) {
-    //     return BaseServ.query({
-    //         'method': 'GET',
-    //         'Serv': true,
-    //         'params': params,
-    //         'urlServ': 'call-data/getCallStaffJobInfoListNG_all'
-    //     });
-    // };
-
-
+    return that;
 }])
-angular.module('zc').factory('CharServ', [function(){
-	
-	
+
+
+
+
+
+
+angular.module('zc').factory('ChatServ', [function(){
 	console.log(2)
+	var that = {
+		'aa':111
+	};
+	return that;
+	
 }])

@@ -13,6 +13,6 @@ gulp.task('watch', ['less','concat-controllers','concat-directives','concat-serv
 		gulp.start('concat-directives');
 	});
 	watch('./src/scripts/services/**/*.js',function(){
-		gulp.start('concat-directives');
+		gulp.start('concat-services');
 	});
 })
