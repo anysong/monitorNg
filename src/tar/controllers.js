@@ -43,12 +43,6 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope', fun
 
 	init();
 }])
-angular.module("zc").controller("SettingsCtrl",[function(){
-	console.log('SettingsCtrl');
-}]);
-angular.module("zc").controller("SettingsMonitorCtrl", [function(){
-	console.log('SettingsMonitorCtrl');
-}])
 angular.module("zc").controller("HomeCtrl", [function(){
 	console.log('HomeCtrl');
 }]);
@@ -59,19 +53,26 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope',function($scope){
 	$scope.layoutList = [
 		{
 			'name': 'chart_1', //图表名称
-			'type': 'pie',     //图表样式
+			'type': 'pie'      //图表样式
 		},
 		{
-			'name': 'chart_1', //图表名称
-			'type': 'line',     //图表样式
+			'name': 'chart_2', //图表名称
+			'type': 'line'      //图表样式
 		},
 		{
-			'name': 'chart_1', //图表名称
-			'type': 'line',     //图表样式
+			'name': 'chart_3', //图表名称
+			'type': 'bar'     //图表样式
 		},
 		{
-			'name': 'chart_1', //图表名称
-			'type': 'line',     //图表样式
+			'name': 'chart_4', //图表名称
+			'type': 'bar'     //图表样式
 		}
 	];
+
 }]);
+angular.module("zc").controller("SettingsCtrl",[function(){
+	console.log('SettingsCtrl');
+}]);
+angular.module("zc").controller("SettingsMonitorCtrl", [function(){
+	console.log('SettingsMonitorCtrl');
+}])

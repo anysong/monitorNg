@@ -29,6 +29,7 @@
     "@uirouter/angularjs": "^1.0.14",
     "angular": "^1.6.9",
     "bootstrap": "^3.3.7",
+    "echarts": "^4.0.2",
     "jquery": "^3.3.1"
   }
 }

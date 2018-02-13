@@ -1,10 +1,10 @@
 <div class="home-monitor">
 	<ul class="home-monitor-layout">
 		<li class="home-monitor-layout-li" ng-repeat="item in layoutList">
-			<span ng-bind="item.name"></span>
-			<div ng-if="item.type === 'bar'" zc-chart-bar></div>
-			<div ng-if="item.type === 'pie'" zc-chart-pie></div>
-			<div ng-if="item.type === 'line'" zc-chart-line></div>
+			<span>自定义标题</span>
+			<div ng-if="item.type === 'bar'" zc-chart-bar chartItem="{{item}}"></div>
+			<div ng-if="item.type === 'pie'" zc-chart-pie chartItem="{{item}}"></div>
+			<div ng-if="item.type === 'line'" zc-chart-line chartItem="{{item}}"></div>
 		</li>
 	</ul>
 </div>
