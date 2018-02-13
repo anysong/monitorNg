@@ -1,4 +1,5 @@
-angular.module('zc').factory('charServ', [function(){
+angular.module('zc').factory('CharServ', [function(){
 	
 	
+	console.log(2)
 }])

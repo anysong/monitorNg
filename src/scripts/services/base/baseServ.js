@@ -1,4 +1,4 @@
-angular.module('zc').factory('baseServ', [function(){
+angular.module('zc').factory('BaseServ', [function(){
 	
-	
+	console.log('b')
 }])
