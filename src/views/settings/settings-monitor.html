@@ -31,7 +31,37 @@
 	<ul class="settings-monitor-option">
 		<li class="settings-monitor-option-li"
 			ng-repeat="item in oLayout.list track by $index">
-			下拉
+			<span class="settings-monitor-option-li-child" ng-bind="$index + 1"></span>
+			<!-- 类型	 -->
+			<div class="zc-j-dropdown settings-monitor-option-li-child">
+                <button class="dropdown-toggle zc-g-dropdown-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="dropdown-btn-current" ng-bind="item.typeName"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu zc-g-dropdown-menu">
+                    <li class="zc-g-dropdown-menu-li"
+                        ng-class="{'active': false}"
+                        ng-repeat="childItem in typeList"
+                        ng-click="setType(childItem, $parent.$index, $index)">
+                        <a class="zc-g-dropdown-menu-li-a" href="javascript:;" ng-bind="childItem.typeName"></a>
+                    </li>
+                </ul>
+            </div>
+			<!-- 选项，复选按钮 -->
+            <div class="zc-j-dropdown settings-monitor-option-li-child" ng-show="item.typeValue">
+                <button class="dropdown-toggle zc-g-dropdown-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="dropdown-btn-current" ng-bind="item.choicedOpt"></span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu zc-g-dropdown-menu">
+                    <li class="zc-g-dropdown-menu-li"
+                        ng-class="{'active': false}"
+                        ng-repeat="option in item.options"
+                        ng-click="setOptions(childItem, $parent.$index, $index)">
+                        <a class="zc-g-dropdown-menu-li-a" href="javascript:;" ng-bind="option"></a>
+                    </li>
+                </ul>
+            </div>
 		</li>
 	</ul>
 </div>

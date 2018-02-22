@@ -1,0 +1,443 @@
+// 按钮
+.zc-j-btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 14px;
+    border: 1px solid #0DAEAF;
+    color: #0DAEAF;
+    background-color: #ffffff; // bootstrap 污染
+    border-radius: 2px;
+    line-height: 26px;
+    height: 28px;
+    padding: 0 10px;
+    margin: 0;
+    position: relative;
+    &[class*="btn-"] {
+        padding-left: 28px;
+        &::before {
+            content: '';
+            background-image: url(../images/sprite/jui.png);
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            left: 10px;
+            top: 7px;
+        }
+        &.disabled {
+            color: #D8D8D8;
+            cursor: not-allowed;
+            background-color: #EFF3FA;
+            border-color: #EFF3FA;
+        }
+    }
+    &:hover {
+        color: #ffffff;
+        background-color: #1FCDCF;
+        border-color: #1FCDCF;
+    }
+    &.disabled {
+        color: #D8D8D8;
+        cursor: not-allowed;
+        background-color: #EFF3FA;
+        border-color: #EFF3FA;
+    }
+    //删除
+    &.btn-del {
+        &::before {
+            background-position: -80px -60px;
+        }
+        &:hover {
+            // background-color: #F95760;
+            // border-color: #F95760;
+            &::before {
+                background-position: -60px -60px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -40px -60px;
+            }
+            &:hover {
+                background-color: #EFF3FA;
+                border-color: #EFF3FA;
+                &::before {
+                    background-position: -40px -60px;
+                }
+            }
+        }
+    }
+    //编辑
+    &.btn-edit {
+        &::before {
+            background-position: -80px 0;
+        }
+        &:hover {
+            &::before {
+                background-position: -60px 0;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -40px 0;
+            }
+            &:hover {
+                &::before {
+                    background-position: -40px 0;
+                }
+            }
+        }
+    }
+    //取消
+    &.btn-cancel {
+        &::before {
+            background-position: -0 -140px;
+        }
+        &:hover {
+            &::before {
+                background-position: -60px -140px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -20px -140px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -20px -140px;
+                }
+            }
+        }
+    }
+    //分享
+    &.btn-share {
+        &::before {
+            background-position: -120px -60px;
+            width: 14px;
+            height: 14px;
+        }
+        &:hover {
+            &::before {
+                background-position: -140px -40px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -140px -60px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -140px -60px;
+                }
+            }
+        }
+    }
+    //复制
+    &.btn-copy {
+        &::before {
+            background-position: -300px -140px;
+        }
+        &:hover {
+            &::before {
+                background-position: -320px -140px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -340px -140px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -340px -140px;
+                }
+            }
+        }
+    }
+    //启用
+    &.btn-enable {
+        &::before {
+            background-position: -300px -80px;
+        }
+        &:hover {
+            &::before {
+                background-position: -320px -80px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -340px -80px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -340px -80px;
+                }
+            }
+        }
+    }
+    //停用
+    &.btn-disable {
+        &::before {
+            background-position: -300px -100px;
+        }
+        &:hover {
+            &::before {
+                background-position: -320px -100px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -340px -100px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -340px -100px;
+                }
+            }
+        }
+    }
+    //表
+    &.btn-time {
+        &::before {
+            background-position: -300px -120px;
+        }
+        &:hover {
+            &::before {
+                background-position: -320px -120px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -340px -120px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -340px -120px;
+                }
+            }
+        }
+    }
+    //增加
+    &.btn-add {
+        &::before {
+            background-position: 0px -200px;
+        }
+        &:hover {
+            &::before {
+                background-position: -60px -200px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -40px -200px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -40px -200px;
+                }
+            }
+        }
+    }
+    //返回
+    &.btn-back {
+        &::before {
+            background-position: -278px -159px;
+        }
+        &:hover {
+            &::before {
+                background-position: -298px -159px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -258px -159px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -258px -159px;
+                }
+            }
+        }
+    }
+
+    //转移
+    &.btn-transfer {
+        &::before {
+            background-position: -100px -279px;
+        }
+        &:hover {
+            &::before {
+                background-position: -120px -279px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -80px -279px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -80px -279px;
+                }
+            }
+        }
+    }
+    //弹层
+    &.btn-model {
+        border: 0;
+        background-color: #0DAEAF;
+        color: #ffffff;
+        padding: 0 36px;
+        height: 36px;
+        &::before {
+            display: none;
+        }
+        &:hover {
+            background-color: #2AC7C9;
+        }
+        &.disabled {
+            &:hover {
+                background-color: #EFF3FA;
+            }
+        }
+    }
+    //弹层
+    &.btn-model-cancel {
+        border: 0;
+        color: #3D4966;
+        background-color: #E5EBF6;
+        padding: 0 36px;
+        height: 36px;
+        &::before {
+            display: none;
+        }
+        &:hover {
+            background-color: #EFF3FA;
+        }
+        &.disabled {
+            cursor: not-allowed;
+            &::before {
+                background-position: -40px -180px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -40px -180px;
+                }
+            }
+        }
+    }
+    //文本
+    &.btn-text {
+        border: 0;
+        background-color: #0DAEAF;
+        color: #ffffff;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0px;
+        &::before {
+            display: none;
+        }
+        &:hover {
+            background-color: #2AC7C9;
+        }
+        &.disabled {
+            &:hover {
+                background-color: #EFF3FA;
+            }
+        }
+    }
+    &.btn-text-cancel {
+        border: 0;
+        color: #3D4966;
+        background-color: #E5EBF6;
+        width: 80px;
+        height: 30px;
+        padding: 0px;
+        &::before {
+            display: none;
+        }
+        &:hover {
+            background-color: #EFF3FA;
+        }
+        &.disabled {
+            &:hover {
+                background-color: #EFF3FA;
+            }
+        }
+    }
+    &.btn-search-text {
+        border: 0;
+        color: #3D4966;
+        background-color: #E5EBF6;
+        padding: 0 10px;
+        height: 28px;
+        &::before {
+            display: none;
+        }
+        &:hover {
+            background-color: #EFF3FA;
+        }
+        &.disabled {
+            &:hover {
+                background-color: #EFF3FA;
+            }
+        }
+    }
+    //搜索
+    &.btn-search {
+        border: 0;
+        background-color: #0DAEAF;
+        color: #ffffff;
+        padding: 0 10px;
+        height: 28px;
+        border-radius: 0 2px 2px 0;
+        &::before {
+            display: none;
+        }
+        &:hover {
+            background-color: #2AC7C9;
+        }
+        &.disabled {
+            &:hover {
+                background-color: #EFF3FA;
+            }
+        }
+    }
+
+    &.btn-add-sm {
+        height: 24px;
+        line-height: 22px;
+        padding-left: 28px;
+        &::before {
+            background-position: 0px -200px;
+            content: '';
+            background-image: url(../images/sprite/jui.png);
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            vertical-align: middle;
+            position: absolute;
+            left: 10px;
+            top: 5px;
+        }
+        &:hover {
+            &::before {
+                background-position: -60px -200px;
+            }
+        }
+        &.disabled {
+            &::before {
+                background-position: -40px -200px;
+            }
+            &:hover {
+                &::before {
+                    background-position: -40px -200px;
+                }
+            }
+        }
+    }
+}

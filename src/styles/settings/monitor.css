@@ -75,3 +75,18 @@
   padding-left: 110px;
   margin-top: 20px;
 }
+.settings-monitor .settings-monitor-option .settings-monitor-option-li {
+  margin-bottom: 10px;
+}
+.settings-monitor .settings-monitor-option .settings-monitor-option-li::after {
+  content: '';
+  height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+.settings-monitor .settings-monitor-option .settings-monitor-option-li .settings-monitor-option-li-child {
+  float: left;
+  margin-right: 10px;
+  line-height: 26px;
+}
