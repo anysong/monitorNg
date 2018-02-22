@@ -22,14 +22,6 @@ angular.module('zc').factory('BaseServ', ['$q',function($q){
 	that.query = query;
 	return that;
 }])
-angular.module('zc').factory('ChatServ', [function(){
-	console.log(2)
-	var that = {
-		'aa':111
-	};
-	return that;
-	
-}])
 angular.module('zc').factory('CallServ', ['BaseServ',function(BaseServ){
     var getUrl = {
     	'getCallStaffJobInfoListNG_all': 'call-data/getCallStaffJobInfoListNG_all',
@@ -56,3 +48,12 @@ angular.module('zc').factory('CallServ', ['BaseServ',function(BaseServ){
 
 
 
+
+angular.module('zc').factory('ChatServ', [function(){
+	console.log(2)
+	var that = {
+		'aa':111
+	};
+	return that;
+	
+}])

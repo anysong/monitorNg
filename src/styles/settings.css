@@ -35,8 +35,9 @@
 }
 .settings-monitor .settings-monitor-layout {
   width: 100%;
-  height: 100%;
-  padding-left: 100px;
+  height: 50%;
+  padding-left: 110px;
+  padding-top: 10px;
 }
 .settings-monitor .settings-monitor-layout::after {
   content: '';
@@ -70,4 +71,15 @@
 .settings-monitor .settings-monitor-layout .settings-monitor-layout-li.tenSize {
   width: 20%;
   height: 50%;
+}
+.settings-monitor .settings-monitor-layout .settings-monitor-layout-li .settings-monitor-layout-li-cont {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: 20px;
+}
+.settings-monitor .settings-monitor-option {
+  width: 100%;
+  padding-left: 110px;
+  margin-top: 20px;
 }

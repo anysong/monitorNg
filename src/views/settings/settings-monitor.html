@@ -25,6 +25,13 @@
 				'sixSize': oLayout.number == 6,
 				'eightSize': oLayout.number == 8,
 				'tenSize': oLayout.number == 10}">
+			<div class="settings-monitor-layout-li-cont" ng-bind="$index + 1"></div>
+		</li>
+	</ul>
+	<ul class="settings-monitor-option">
+		<li class="settings-monitor-option-li"
+			ng-repeat="item in oLayout.list track by $index">
+			下拉
 		</li>
 	</ul>
 </div>
