@@ -56,7 +56,7 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	  		views :{
 	  			'zcMainBodyMainContent': {
 	  				controller: 'HomeMonitorCtrl',
-	  				templateUrl: 'views/home/content-monitor.html'
+	  				templateUrl: 'views/home/home-monitor.html'
 	  			}
 	  		}
 	  	})
@@ -77,7 +77,7 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	  		views :{
 	  			'zcMainBodyMainContent': {
 	  				controller: 'SettingsMonitorCtrl',
-	  				templateUrl: 'views/settings/content-settings.html'
+	  				templateUrl: 'views/settings/settings-monitor.html'
 	  			}
 	  		}
 	  	})

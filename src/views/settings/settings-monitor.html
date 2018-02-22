@@ -1,0 +1,30 @@
+<div class="settings-monitor">
+	<ul class="settings-monitor-menu">
+		<li class="settings-monitor-menu-li" 
+			ng-class="{'active': oLayout.number == 2}" 
+			ng-click="selectLayout(2)">2X1</li>
+		<li class="settings-monitor-menu-li"
+			ng-class="{'active': oLayout.number == 4}"
+			ng-click="selectLayout(4)">2X2</li>
+		<li class="settings-monitor-menu-li"
+			ng-class="{'active': oLayout.number == 6}"
+			ng-click="selectLayout(6)">3X2</li>
+		<li class="settings-monitor-menu-li"
+			ng-class="{'active': oLayout.number == 8}"
+			ng-click="selectLayout(8)">4X2</li>
+		<li class="settings-monitor-menu-li"
+			ng-class="{'active': oLayout.number == 10}"
+			ng-click="selectLayout(10)">5X2</li>
+	</ul>
+	<ul class="settings-monitor-layout">
+		<li class="settings-monitor-layout-li"
+			ng-repeat="item in oLayout.list track by $index"
+			ng-class="{
+				'twoSize': oLayout.number == 2,
+				'fourSize': oLayout.number == 4,
+				'sixSize': oLayout.number == 6,
+				'eightSize': oLayout.number == 8,
+				'tenSize': oLayout.number == 10}">
+		</li>
+	</ul>
+</div>
