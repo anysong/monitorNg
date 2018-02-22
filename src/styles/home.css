@@ -27,3 +27,23 @@
   border: 1px solid #3d4966;
   float: left;
 }
+.home-monitor .home-monitor-layout .home-monitor-layout-li.twoSize {
+  width: 50%;
+  height: 100%;
+}
+.home-monitor .home-monitor-layout .home-monitor-layout-li.fourSize {
+  width: 50%;
+  height: 50%;
+}
+.home-monitor .home-monitor-layout .home-monitor-layout-li.sixSize {
+  width: 33%;
+  height: 50%;
+}
+.home-monitor .home-monitor-layout .home-monitor-layout-li.eightSize {
+  width: 25%;
+  height: 50%;
+}
+.home-monitor .home-monitor-layout .home-monitor-layout-li.tenSize {
+  width: 20%;
+  height: 50%;
+}

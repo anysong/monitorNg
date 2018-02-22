@@ -1,6 +1,13 @@
 <div class="home-monitor">
 	<ul class="home-monitor-layout">
-		<li class="home-monitor-layout-li" ng-repeat="item in objLayout.list">
+		<li class="home-monitor-layout-li"
+			ng-class="{
+				'twoSize': objLayout.number == 2,
+				'fourSize': objLayout.number == 4,
+				'sixSize': objLayout.number == 6,
+				'eightSize': objLayout.number == 8,
+				'tenSize': objLayout.number == 10}" 
+			ng-repeat="item in objLayout.list">
 			<span ng-bind="item.name">自定义标题</span>
 			<div ng-if="item.type === 'bar'" zc-chart-bar chartItem="{{item}}"></div>
 			<div ng-if="item.type === 'pie'" zc-chart-pie chartItem="{{item}}"></div>
