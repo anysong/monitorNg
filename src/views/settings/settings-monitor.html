@@ -35,7 +35,7 @@
 			<!-- 类型	 -->
 			<div class="zc-j-dropdown settings-monitor-option-li-child">
                 <button class="dropdown-toggle zc-g-dropdown-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="dropdown-btn-current" ng-bind="item.typeName"></span>
+                    <span class="dropdown-btn-current" ng-bind="item.name"></span>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu zc-g-dropdown-menu">
@@ -43,12 +43,12 @@
                         ng-class="{'active': false}"
                         ng-repeat="childItem in typeList"
                         ng-click="setType(childItem, $parent.$index, $index)">
-                        <a class="zc-g-dropdown-menu-li-a" href="javascript:;" ng-bind="childItem.typeName"></a>
+                        <a class="zc-g-dropdown-menu-li-a" href="javascript:;" ng-bind="childItem.name"></a>
                     </li>
                 </ul>
             </div>
 			<!-- 选项，复选按钮 -->
-            <div class="zc-j-dropdown settings-monitor-option-li-child" ng-show="item.typeValue">
+            <div class="zc-j-dropdown settings-monitor-option-li-child" ng-show="item.value">
                 <button class="dropdown-toggle zc-g-dropdown-btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="dropdown-btn-current" ng-bind="item.choicedOpt"></span>
                     <span class="caret"></span>

@@ -1,7 +1,7 @@
 <div class="home-monitor">
 	<ul class="home-monitor-layout">
-		<li class="home-monitor-layout-li" ng-repeat="item in layoutList">
-			<span>自定义标题</span>
+		<li class="home-monitor-layout-li" ng-repeat="item in objLayout.list">
+			<span ng-bind="item.name">自定义标题</span>
 			<div ng-if="item.type === 'bar'" zc-chart-bar chartItem="{{item}}"></div>
 			<div ng-if="item.type === 'pie'" zc-chart-pie chartItem="{{item}}"></div>
 			<div ng-if="item.type === 'line'" zc-chart-line chartItem="{{item}}"></div>

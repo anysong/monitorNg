@@ -1,6 +1,6 @@
-angular.module("zc").controller("HomeMonitorCtrl", ['$scope',function($scope){
+angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope',function($scope,$rootScope){
 	console.log('HomeMonitorCtrl');
-
+	console.log('$rootScope',$rootScope.objLayout);
 	/** 根据模版加载展示区 **/
 	$scope.layoutList = [
 		{
@@ -20,5 +20,21 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope',function($scope){
 			'type': 'bar'     //图表样式
 		}
 	];
+	var initParams = function(){
 
+	};
+	var initFunc = function(){
+
+	};
+	var getConfig = function(){
+		//获取配置项
+		//$rootScope.objLayout.number = 4;  layout
+		
+	};
+	var init = function(){
+		initParams();
+		initFunc();
+		getConfig();
+	};
+	init();
 }]);

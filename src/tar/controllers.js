@@ -48,9 +48,9 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','Cha
 angular.module("zc").controller("HomeCtrl", [function(){
 	console.log('HomeCtrl');
 }]);
-angular.module("zc").controller("HomeMonitorCtrl", ['$scope',function($scope){
+angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope',function($scope,$rootScope){
 	console.log('HomeMonitorCtrl');
-
+	console.log('$rootScope',$rootScope.objLayout);
 	/** 根据模版加载展示区 **/
 	$scope.layoutList = [
 		{
@@ -70,23 +70,46 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope',function($scope){
 			'type': 'bar'     //图表样式
 		}
 	];
+	var initParams = function(){
 
+	};
+	var initFunc = function(){
+
+	};
+	var getConfig = function(){
+		//获取配置项
+		//$rootScope.objLayout.number = 4;  layout
+		
+	};
+	var init = function(){
+		initParams();
+		initFunc();
+		getConfig();
+	};
+	init();
 }]);
 angular.module("zc").controller("SettingsCtrl",[function(){
 	console.log('SettingsCtrl');
 }]);
-angular.module("zc").controller("SettingsMonitorCtrl", ['$scope',function($scope){
+angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',function($scope,$rootScope){
 	console.log('SettingsMonitorCtrl');
 
 	var initConfig = function(){
 		$scope.typeList = [
 			{
-				typeName: '地区统计',
-				typeValue: '001'
+				name: '地区统计',
+				value: '001',
+				type: 'pie'
 			},
 			{
-				typeName: '通话统计',
-				typeValue: '002'
+				name: '通话统计',
+				value: '002',
+				type: 'line'
+			},
+			{
+				name: '在线统计',
+				value: '003',
+				type: 'bar'
 			}
 		];
 	};
@@ -94,13 +117,15 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope',function($scope
 		$scope.oLayout = {
 			'number': 2,
 			'list': [{
-				'typeName': '请选择分类',   
-				'typeValue': null,        
+				'name': '请选择分类',   
+				'value': '',
+				'type': '',        
 				'options': [],            
 				'choicedOpt': '全部'		  
 			},{
-				'typeName': '请选择分类',   
-				'typeValue': null,        
+				'name': '请选择分类',   
+				'value': '',
+				'type': '',        
 				'options': [],            
 				'choicedOpt': '全部'		  
 			}]
@@ -115,17 +140,18 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope',function($scope
 
 		for(var i=0;i<number;i++){
 			$scope.oLayout.list.push({
-				'typeName': '请选择分类',   //分类名称
-				'typeValue': null,        //分类ID
+				'name': '请选择分类',   //分类名称
+				'value': '',          //
+				'type': '',           //
 				'options': [],            //选项
 				'choicedOpt': '全部'		  //选中项
 			});
 		};
 		console.log($scope.oLayout.list.length)
 	};
-	var getOptions = function(typeValue){
+	var getOptions = function(value){
 		var arr = [];
-		switch (typeValue){
+		switch (value){
 			case '001':
 				arr = ['北京','上海','杭州'];
 				break;
@@ -137,16 +163,18 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope',function($scope
 
 		return arr;
 	};
-	var setType = function(type, parentIndex, index){
-		console.log(type.typeName);
+	var setType = function(item, parentIndex, index){
+		console.log(item.name);
 		// console.log(index);
-		$scope.oLayout.list[parentIndex].typeName = type.typeName;
-		$scope.oLayout.list[parentIndex].typeValue = type.typeValue;
+		$scope.oLayout.list[parentIndex].name = item.name;
+		$scope.oLayout.list[parentIndex].value = item.value;
+		$scope.oLayout.list[parentIndex].type = item.type;
 
 		//获取不同分类的下拉子选项
 		$scope.oLayout.list[parentIndex].choicedOpt = '全部';
-		$scope.oLayout.list[parentIndex].options = getOptions(type.typeValue);
-
+		$scope.oLayout.list[parentIndex].options = getOptions(item.value);
+		console.log($scope.oLayout);
+		$rootScope.objLayout = $scope.oLayout
 	};
 	var setOptions = function(){
 
