@@ -70,17 +70,30 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 
 		return arr;
 	};
+	var uuid = function() {
+        var s = [];
+        var hexDigits = "0123456789abcdef";
+        for (var i = 0; i < 36; i++) {
+            s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+        }
+        s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+        s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+        s[8] = s[13] = s[18] = s[23] = "-";
+
+        var uuid = s.join("");
+        return uuid;
+    };
 	var setType = function(item, parentIndex, index){
-		console.log(item.name);
-		// console.log(index);
+		
 		$scope.oLayout.list[parentIndex].name = item.name;
 		$scope.oLayout.list[parentIndex].value = item.value;
 		$scope.oLayout.list[parentIndex].type = item.type;
+		$scope.oLayout.list[parentIndex].uuid = uuid();
 
 		//获取不同分类的下拉子选项
 		$scope.oLayout.list[parentIndex].choicedOpt = '全部';
 		$scope.oLayout.list[parentIndex].options = getOptions(item.value);
-		console.log($scope.oLayout);
+		
 		$rootScope.objLayout = $scope.oLayout
 	};
 	var setOptions = function(){

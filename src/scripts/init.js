@@ -1,6 +1,6 @@
 angular.module('zc').run(['$rootScope','$state', function($rootScope,$state){
 	/** 执行初始化 **/
-	console.log('run init');
+	
 
 	/** 路由监听器 方法没了 **/
 	// $rootScope.$on("$stateChangeStart", function(){
@@ -12,9 +12,9 @@ angular.module('zc').run(['$rootScope','$state', function($rootScope,$state){
 
 
 	/** 校验token **/
-	var token = window.sessionStorage.getItem('temp-id');
+	var token = window.localStorage.getItem('temp-id');
 	if(token){
-
+		console.log('token获取成功！');
 	}else {
 		console.log('token获取失败');
 		//跳转到登录

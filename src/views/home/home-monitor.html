@@ -9,9 +9,9 @@
 				'tenSize': objLayout.number == 10}" 
 			ng-repeat="item in objLayout.list">
 			<span ng-bind="item.name">自定义标题</span>
-			<div ng-if="item.type === 'bar' && item.render" zc-chart-bar chartItem="{{item}}"></div>
-			<div ng-if="item.type === 'pie' && item.render" zc-chart-pie chartItem="{{item}}"></div>
-			<div ng-if="item.type === 'line' && item.render" zc-chart-line chartItem="{{item}}"></div>
+			<div ng-if="item.type === 'bar'" zc-chart-bar uuid="{{item.uuid}}" chartItem="{{item}}"></div>
+			<div ng-if="item.type === 'pie'" zc-chart-pie uuid="{{item.uuid}}" chartItem="{{item}}"></div>
+			<div ng-if="item.type === 'line'" zc-chart-line uuid="{{item.uuid}}" chartItem="{{item}}"></div>
 		</li>
 	</ul>
 </div>

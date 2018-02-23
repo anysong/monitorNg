@@ -2,9 +2,8 @@ angular.module("zc").directive('zcChartLine',[function(){
 	/** 线形图表 **/
 	var link = function(s, e){
 		var $scope = s,
+			option = {},
 			$node = $(e[0]);
-
-			console.log('$node[0]', $node[0]);
 
 			var myChart = echarts.init($node[0]);
 
@@ -100,6 +99,20 @@ angular.module("zc").directive('zcChartLine',[function(){
                 myChart.resize()
               })
             });
+            var initEvent = function(){
+				$scope.$on('echarts.line.render', function(ev, uuid){
+					
+					if($scope.uuid === uuid){
+						console.log('uuid',$scope.uuid);
+						// 渲染
+						myChart.setOption(option);
+					};
+				});
+			};
+            var init = function(){
+            	initEvent();
+            };
+            init();
 	};
 
 	return {
