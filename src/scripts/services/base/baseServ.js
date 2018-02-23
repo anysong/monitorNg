@@ -8,6 +8,7 @@ angular.module('zc').factory('BaseServ', ['$q','$http',function($q,$http){
 			'url': dealUrl(),
 			'headers': {}
 		};
+		var token = window.localStorage.getItem('temp-id');
 		/**  defer **/
 		var deferred = $q.defer();
 		/** deUrl处理url **/
@@ -22,17 +23,10 @@ angular.module('zc').factory('BaseServ', ['$q','$http',function($q,$http){
 		};
 
 		if(opt.method === 'GET'){
-			console.log(window.localStorage.getItem('temp-id'));
+			
 			opt.params = data.params || {};
-			opt.headers['temp-id'] = window.localStorage.getItem('temp-id');
+			opt.headers['temp-id'] = token;
 
-			console.log('opt',opt);
-			console.log($http);
-			// $http(opt).success(function(data) {
-   //              deferred.resolve(data);
-   //          }).error(function(msg) {
-   //              deferred.reject(msg);
-   //          });
    			$http(opt).then(function(data){
    				deferred.resolve(data);
    			},function(msg){
@@ -41,8 +35,7 @@ angular.module('zc').factory('BaseServ', ['$q','$http',function($q,$http){
             return deferred.promise;
 
 		}else if(opt.method === 'POST'){
-			var token = '';
-			token = window.localStorage.getItem('temp-id');
+			
 			var ajaxObj = $.ajax({
 				type: 'POST',
 				url: dealUrl(),

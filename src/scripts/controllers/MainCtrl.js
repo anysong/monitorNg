@@ -1,11 +1,6 @@
 angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','ChatServ','CallServ',
 	function($scope,$state,$rootScope,ChatServ,CallServ){
 
-	$scope.title = '1';
-	$scope.body = '2';
-	$scope.footer = '3';
-
-
 	/** sidebarList **/
 	$scope.sidebarList = [
 		{

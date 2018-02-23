@@ -1,5 +1,5 @@
-angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',function($scope,$rootScope){
-	console.log('SettingsMonitorCtrl');
+angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
+	function($scope,$rootScope){
 
 	var initConfig = function(){
 		$scope.typeList = [

@@ -55,11 +55,10 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 						console.log('22', rs.data);
 						item.params = rs.data;
 						item.render = true; //渲染
-						console.log('$rootScope.objLayout',$rootScope.objLayout);
-					})
+					});
 					break;
 				case '002':
-					
+
 					break;
 				default:
 			};

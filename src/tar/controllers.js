@@ -1,11 +1,6 @@
 angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','ChatServ','CallServ',
 	function($scope,$state,$rootScope,ChatServ,CallServ){
 
-	$scope.title = '1';
-	$scope.body = '2';
-	$scope.footer = '3';
-
-
 	/** sidebarList **/
 	$scope.sidebarList = [
 		{
@@ -44,7 +39,7 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','Cha
 	init();
 }])
 angular.module("zc").controller("HomeCtrl", [function(){
-	console.log('HomeCtrl');
+	
 }]);
 angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
 	function($scope,$rootScope,CallServ){
@@ -103,11 +98,10 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 						console.log('22', rs.data);
 						item.params = rs.data;
 						item.render = true; //渲染
-						console.log('$rootScope.objLayout',$rootScope.objLayout);
-					})
+					});
 					break;
 				case '002':
-					
+
 					break;
 				default:
 			};
@@ -122,10 +116,10 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 	init();
 }]);
 angular.module("zc").controller("SettingsCtrl",[function(){
-	console.log('SettingsCtrl');
+	
 }]);
-angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',function($scope,$rootScope){
-	console.log('SettingsMonitorCtrl');
+angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
+	function($scope,$rootScope){
 
 	var initConfig = function(){
 		$scope.typeList = [
