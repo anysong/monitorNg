@@ -5,8 +5,6 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','Cha
 	$scope.body = '2';
 	$scope.footer = '3';
 
-	CallServ.getCallStaffJobInfoListNG_all();
-	CallServ.xxxxx();
 
 	/** sidebarList **/
 	$scope.sidebarList = [

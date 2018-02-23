@@ -1,6 +1,6 @@
-angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope',function($scope,$rootScope){
-	console.log('HomeMonitorCtrl');
-	console.log('$rootScope',$rootScope.objLayout);
+angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
+	function($scope,$rootScope,CallServ){
+	
 	/** 根据模版加载展示区 **/
 	$scope.layoutList = [
 		{
@@ -21,7 +21,25 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope',functi
 		}
 	];
 	var initParams = function(){
-
+		if(!$rootScope.objLayout){
+			$rootScope.objLayout = {
+				'number': 2,
+				'list': [{
+					'name': '请选择分类',   
+					'value': '',
+					'type': '',        
+					'options': [],            
+					'choicedOpt': '全部'		  
+				},{
+					'name': '请选择分类',   
+					'value': '',
+					'type': '',        
+					'options': [],            
+					'choicedOpt': '全部'		  
+				}]
+			};
+		};
+		
 	};
 	var initFunc = function(){
 
@@ -29,7 +47,24 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope',functi
 	var getConfig = function(){
 		//获取配置项
 		//$rootScope.objLayout.number = 4;  layout
-		
+		$rootScope.objLayout.list.map(function(item, index){
+			switch (item.value){
+				case '001':
+					//当前在线客服
+					CallServ.getOnceData().then(function(rs){
+						console.log('22', rs.data);
+						item.params = rs.data;
+						item.render = true; //渲染
+						console.log('$rootScope.objLayout',$rootScope.objLayout);
+					})
+					break;
+				case '002':
+					
+					break;
+				default:
+			};
+		})
+
 	};
 	var init = function(){
 		initParams();

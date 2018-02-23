@@ -1,7 +1,7 @@
 angular.module('zc').factory('CallServ', ['BaseServ',function(BaseServ){
     var getUrl = {
     	'getCallStaffJobInfoListNG_all': 'call-data/getCallStaffJobInfoListNG_all',
-    	'xxxxx': 'aaaaa'
+    	'getOnceData': 'chat/data/getOnceData.action'
     };
     var that = {};
    for(var name in getUrl ){
@@ -10,6 +10,7 @@ angular.module('zc').factory('CallServ', ['BaseServ',function(BaseServ){
                 var promise = BaseServ.query({
                     method: 'GET',
                     url: url,
+                    ChatServ: true,
                     params: params
                 })
                 return promise
