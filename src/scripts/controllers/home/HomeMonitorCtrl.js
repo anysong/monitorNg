@@ -1,6 +1,6 @@
 angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
 	function($scope,$rootScope,CallServ){
-	
+
 	/** 根据模版加载展示区 **/
 	// $scope.layoutList = [
 	// 	{
@@ -25,36 +25,36 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 			$rootScope.objLayout = {
 				'number': 2,
 				'list': [{
-					'name': '请选择分类',   
+					'name': '请选择分类',
 					'value': '',
-					'type': '',        
-					'options': [],            
-					'choicedOpt': '全部'		  
+					'type': '',
+					'options': [],
+					'choicedOpt': '全部'
 				},{
-					'name': '请选择分类',   
+					'name': '请选择分类',
 					'value': '',
-					'type': '',        
-					'options': [],            
-					'choicedOpt': '全部'		  
+					'type': '',
+					'options': [],
+					'choicedOpt': '全部'
 				}]
 			};
 		};
-		
+
 	};
 	var initFunc = function(){
 
 	};
+	var cont = 10;
 	var updateChart = function(){
 		$rootScope.objLayout.list.map(function(item, index){
 			switch (item.value){
 				case '001':
-					console.log(item.value);
 					//当前在线客服
 					CallServ.getOnceData().then(function(rs){
-						console.log('22', rs.data);
+						console.log('获取接口');
 						item.params = rs.data;
-
-						$scope.$broadcast('echarts.pie.render', item.uuid);
+						var dataList = getDataList(rs.data);
+						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
 					});
 					break;
 				case '002':
@@ -69,26 +69,19 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 			updateChart();
 		}, 50000);
 	};
-	var initChart = function(){
-		$rootScope.objLayout.list.map(function(item, index){
-			switch (item.value){
-				case '001':
-					console.log(item.value);
-					//当前在线客服
-					CallServ.getOnceData().then(function(rs){
-						console.log('22', rs.data);
-						item.params = rs.data;
 
-						$scope.$broadcast('echarts.pie.render', item.uuid);
-					});
-					break;
-				case '002':
-
-					break;
-				default:
-
-			};
-		});
+	var getDataList = function(data){
+		var list = data.adminList || [];
+		list = [{
+			'name': 'aa',
+			'value': 12
+		},{
+			'name': 'bb',
+			'value': 50
+		}]
+		cont += 5;
+		list[0].value += cont;
+		return list;
 	};
 	var getConfig = function(){
 		//获取配置项
@@ -96,9 +89,9 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 		// initChart();
 		updateChart();
 	};
-	
-	
-	
+
+
+
 
 	var init = function(){
 		initParams();
@@ -107,7 +100,3 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 	};
 	init();
 }]);
-
-
-
-

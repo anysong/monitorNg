@@ -276,13 +276,14 @@ angular.module("zc").directive('zcChartPie',[function(){
 			option = {},
 			$node = $(e[0]);
 
-			var data = genData(2);
-			console.log(data);
+			// var data = genData(2);
+
 			var num = 0;
 
 			var myChart = echarts.init($node[0]);
 
 			option = {
+				color: ['#62aefa','#50d0da','#fc769d','#be70f5','#fa9d31','#f5756e','#8bd153','#fadd31'],
 			    title : {
 			        text: '同名数量统计',
 			        subtext: '纯属虚构',
@@ -292,23 +293,13 @@ angular.module("zc").directive('zcChartPie',[function(){
 			        trigger: 'item',
 			        formatter: "{a} <br/>{b} : {c} ({d}%)"
 			    },
-			    legend: {
-			        type: 'scroll',
-			        orient: 'vertical',
-			        right: 10,
-			        top: 20,
-			        bottom: 20,
-			        data: data.legendData,
-
-			        selected: data.selected
-			    },
 			    series : [
 			        {
 			            name: '姓名',
 			            type: 'pie',
 			            radius : '55%',
 			            center: ['40%', '50%'],
-			            data: data.seriesData,
+			            data: [{'name': 'aa','value': 10},{'name': 'bb','value': 20}],
 			            itemStyle: {
 			                emphasis: {
 			                    shadowBlur: 10,
@@ -360,9 +351,12 @@ angular.module("zc").directive('zcChartPie',[function(){
               })
             });
 			var initEvent = function(){
-				$scope.$on('echarts.pie.render', function(ev, uuid){
+				$scope.$on('echarts.pie.render', function(ev, uuid, dataList){
 					if($scope.uuid === uuid){
-						console.log('render');
+						console.log('render1',uuid);
+						option.series[0].data = dataList;
+						option.title.subtext = 'xxxxxxxx';
+						option.series[0].data.push({'name': 'cc','value': 100});
 						// 渲染
 						myChart.setOption(option);
 					};
