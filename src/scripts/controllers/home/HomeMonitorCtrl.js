@@ -1,25 +1,6 @@
 angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
 	function($scope,$rootScope,CallServ){
 
-	/** 根据模版加载展示区 **/
-	// $scope.layoutList = [
-	// 	{
-	// 		'name': 'chart_1', //图表名称
-	// 		'type': 'pie'      //图表样式
-	// 	},
-	// 	{
-	// 		'name': 'chart_2', //图表名称
-	// 		'type': 'line'      //图表样式
-	// 	},
-	// 	{
-	// 		'name': 'chart_3', //图表名称
-	// 		'type': 'bar'     //图表样式
-	// 	},
-	// 	{
-	// 		'name': 'chart_4', //图表名称
-	// 		'type': 'bar'     //图表样式
-	// 	}
-	// ];
 	var initParams = function(){
 		if(!$rootScope.objLayout){
 			$rootScope.objLayout = {
@@ -44,16 +25,13 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 	var initFunc = function(){
 
 	};
-	var cont = 10;
 	var updateChart = function(){
 		$rootScope.objLayout.list.map(function(item, index){
 			switch (item.value){
-				case '001':
-					//当前在线客服
+				case 'serviceStatus':
+					//当前客服状态
 					CallServ.getOnceData().then(function(rs){
-						console.log('获取接口');
-						item.params = rs.data;
-						var dataList = getDataList(rs.data);
+						var dataList = getServiceStatusList(rs.data);
 						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
 					});
 					break;
@@ -69,18 +47,24 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 			updateChart();
 		}, 50000);
 	};
-
-	var getDataList = function(data){
+	//当前客服状态
+	var getServiceStatusList = function(data){
 		var list = data.adminList || [];
+		var online = 0,busy = 0;
+		list.map(function(item){
+			if(item.status == 1){
+				online ++;
+			}else if(item.status == 2){
+				busy ++;
+			}else {};
+		});
 		list = [{
-			'name': 'aa',
-			'value': 12
+			'name': '在线',
+			'value': online
 		},{
-			'name': 'bb',
-			'value': 50
-		}]
-		cont += 5;
-		list[0].value += cont;
+			'name': '忙碌',
+			'value': busy
+		}];
 		return list;
 	};
 	var getConfig = function(){

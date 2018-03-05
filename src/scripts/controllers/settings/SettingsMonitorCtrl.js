@@ -4,8 +4,8 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 	var initConfig = function(){
 		$scope.typeList = [
 			{
-				name: '地区统计',
-				value: '001',
+				name: '当前客服状态',
+				value: 'serviceStatus',
 				type: 'pie'
 			},
 			{
@@ -24,20 +24,20 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 		$scope.oLayout = {
 			'number': 2,
 			'list': [{
-				'name': '请选择分类',   
+				'name': '请选择分类',
 				'value': '',
-				'type': '',        
-				'options': [],            
-				'choicedOpt': '全部'		  
+				'type': '',
+				'options': [],
+				'choicedOpt': '全部'
 			},{
-				'name': '请选择分类',   
+				'name': '请选择分类',
 				'value': '',
-				'type': '',        
-				'options': [],            
-				'choicedOpt': '全部'		  
+				'type': '',
+				'options': [],
+				'choicedOpt': '全部'
 			}]
 		};
-		
+
 	};
 
 	var selectLayout = function(number){
@@ -84,7 +84,7 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
         return uuid;
     };
 	var setType = function(item, parentIndex, index){
-		
+
 		$scope.oLayout.list[parentIndex].name = item.name;
 		$scope.oLayout.list[parentIndex].value = item.value;
 		$scope.oLayout.list[parentIndex].type = item.type;
@@ -93,7 +93,7 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 		//获取不同分类的下拉子选项
 		$scope.oLayout.list[parentIndex].choicedOpt = '全部';
 		$scope.oLayout.list[parentIndex].options = getOptions(item.value);
-		
+
 		$rootScope.objLayout = $scope.oLayout
 	};
 	var setOptions = function(){

@@ -38,6 +38,96 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','Cha
 
 	init();
 }])
+angular.module("zc").controller("HomeCtrl", [function(){
+	
+}]);
+angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
+	function($scope,$rootScope,CallServ){
+
+	var initParams = function(){
+		if(!$rootScope.objLayout){
+			$rootScope.objLayout = {
+				'number': 2,
+				'list': [{
+					'name': '请选择分类',
+					'value': '',
+					'type': '',
+					'options': [],
+					'choicedOpt': '全部'
+				},{
+					'name': '请选择分类',
+					'value': '',
+					'type': '',
+					'options': [],
+					'choicedOpt': '全部'
+				}]
+			};
+		};
+
+	};
+	var initFunc = function(){
+
+	};
+	var updateChart = function(){
+		$rootScope.objLayout.list.map(function(item, index){
+			switch (item.value){
+				case 'serviceStatus':
+					//当前客服状态
+					CallServ.getOnceData().then(function(rs){
+						var dataList = getServiceStatusList(rs.data);
+						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
+					});
+					break;
+				case '002':
+
+					break;
+				default:
+
+			};
+		});
+
+		setTimeout(function(){
+			updateChart();
+		}, 50000);
+	};
+	//当前客服状态
+	var getServiceStatusList = function(data){
+		var list = data.adminList || [];
+		var online = 0,busy = 0;
+		list.map(function(item){
+			if(item.status == 1){
+				online ++;
+			}else if(item.status == 2){
+				busy ++;
+			}else {};
+		});
+		list = [{
+			'name': '在线',
+			'value': online
+		},{
+			'name': '忙碌',
+			'value': busy
+		}];
+		return list;
+	};
+	var getConfig = function(){
+		//获取配置项
+		//$rootScope.objLayout.number = 4;  layout
+		// initChart();
+		updateChart();
+	};
+
+
+
+
+	var init = function(){
+		initParams();
+		initFunc();
+		getConfig();
+	};
+	init();
+}]);
+
 angular.module("zc").controller("SettingsCtrl",[function(){
 	
 }]);
@@ -47,8 +137,8 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 	var initConfig = function(){
 		$scope.typeList = [
 			{
-				name: '地区统计',
-				value: '001',
+				name: '当前客服状态',
+				value: 'serviceStatus',
 				type: 'pie'
 			},
 			{
@@ -67,20 +157,20 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 		$scope.oLayout = {
 			'number': 2,
 			'list': [{
-				'name': '请选择分类',   
+				'name': '请选择分类',
 				'value': '',
-				'type': '',        
-				'options': [],            
-				'choicedOpt': '全部'		  
+				'type': '',
+				'options': [],
+				'choicedOpt': '全部'
 			},{
-				'name': '请选择分类',   
+				'name': '请选择分类',
 				'value': '',
-				'type': '',        
-				'options': [],            
-				'choicedOpt': '全部'		  
+				'type': '',
+				'options': [],
+				'choicedOpt': '全部'
 			}]
 		};
-		
+
 	};
 
 	var selectLayout = function(number){
@@ -127,7 +217,7 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
         return uuid;
     };
 	var setType = function(item, parentIndex, index){
-		
+
 		$scope.oLayout.list[parentIndex].name = item.name;
 		$scope.oLayout.list[parentIndex].value = item.value;
 		$scope.oLayout.list[parentIndex].type = item.type;
@@ -136,7 +226,7 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 		//获取不同分类的下拉子选项
 		$scope.oLayout.list[parentIndex].choicedOpt = '全部';
 		$scope.oLayout.list[parentIndex].options = getOptions(item.value);
-		
+
 		$rootScope.objLayout = $scope.oLayout
 	};
 	var setOptions = function(){
@@ -155,108 +245,3 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 
 	init();
 }])
-angular.module("zc").controller("HomeCtrl", [function(){
-	
-}]);
-angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
-	function($scope,$rootScope,CallServ){
-
-	/** 根据模版加载展示区 **/
-	// $scope.layoutList = [
-	// 	{
-	// 		'name': 'chart_1', //图表名称
-	// 		'type': 'pie'      //图表样式
-	// 	},
-	// 	{
-	// 		'name': 'chart_2', //图表名称
-	// 		'type': 'line'      //图表样式
-	// 	},
-	// 	{
-	// 		'name': 'chart_3', //图表名称
-	// 		'type': 'bar'     //图表样式
-	// 	},
-	// 	{
-	// 		'name': 'chart_4', //图表名称
-	// 		'type': 'bar'     //图表样式
-	// 	}
-	// ];
-	var initParams = function(){
-		if(!$rootScope.objLayout){
-			$rootScope.objLayout = {
-				'number': 2,
-				'list': [{
-					'name': '请选择分类',
-					'value': '',
-					'type': '',
-					'options': [],
-					'choicedOpt': '全部'
-				},{
-					'name': '请选择分类',
-					'value': '',
-					'type': '',
-					'options': [],
-					'choicedOpt': '全部'
-				}]
-			};
-		};
-
-	};
-	var initFunc = function(){
-
-	};
-	var cont = 10;
-	var updateChart = function(){
-		$rootScope.objLayout.list.map(function(item, index){
-			switch (item.value){
-				case '001':
-					//当前在线客服
-					CallServ.getOnceData().then(function(rs){
-						console.log('获取接口');
-						item.params = rs.data;
-						var dataList = getDataList(rs.data);
-						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
-					});
-					break;
-				case '002':
-
-					break;
-				default:
-
-			};
-		});
-
-		setTimeout(function(){
-			updateChart();
-		}, 50000);
-	};
-
-	var getDataList = function(data){
-		var list = data.adminList || [];
-		list = [{
-			'name': 'aa',
-			'value': 12
-		},{
-			'name': 'bb',
-			'value': 50
-		}]
-		cont += 5;
-		list[0].value += cont;
-		return list;
-	};
-	var getConfig = function(){
-		//获取配置项
-		//$rootScope.objLayout.number = 4;  layout
-		// initChart();
-		updateChart();
-	};
-
-
-
-
-	var init = function(){
-		initParams();
-		initFunc();
-		getConfig();
-	};
-	init();
-}]);

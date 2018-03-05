@@ -13,6 +13,9 @@ angular.module("zc").directive('zcChartPie',[function(){
 
 			option = {
 				color: ['#62aefa','#50d0da','#fc769d','#be70f5','#fa9d31','#f5756e','#8bd153','#fadd31'],
+				textStyle: {
+					fontSize: '16px'
+				},
 			    title : {
 			        text: '同名数量统计',
 			        subtext: '纯属虚构',
@@ -28,14 +31,19 @@ angular.module("zc").directive('zcChartPie',[function(){
 			            type: 'pie',
 			            radius : '55%',
 			            center: ['40%', '50%'],
-			            data: [{'name': 'aa','value': 10},{'name': 'bb','value': 20}],
+			            data: [],
 			            itemStyle: {
 			                emphasis: {
 			                    shadowBlur: 10,
 			                    shadowOffsetX: 0,
 			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
 			                }
-			            }
+			            },
+						label: {
+							show: true,
+							fontSize: '20',
+							fontWeight: 'bold'
+						}
 			        }
 			    ]
 			};
@@ -85,7 +93,6 @@ angular.module("zc").directive('zcChartPie',[function(){
 						console.log('render1',uuid);
 						option.series[0].data = dataList;
 						option.title.subtext = 'xxxxxxxx';
-						option.series[0].data.push({'name': 'cc','value': 100});
 						// 渲染
 						myChart.setOption(option);
 					};
