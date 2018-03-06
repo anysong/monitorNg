@@ -38,96 +38,6 @@ angular.module("zc").controller("MainCtrl", ['$scope','$state','$rootScope','Cha
 
 	init();
 }])
-angular.module("zc").controller("HomeCtrl", [function(){
-	
-}]);
-angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
-	function($scope,$rootScope,CallServ){
-
-	var initParams = function(){
-		if(!$rootScope.objLayout){
-			$rootScope.objLayout = {
-				'number': 2,
-				'list': [{
-					'name': '请选择分类',
-					'value': '',
-					'type': '',
-					'options': [],
-					'choicedOpt': '全部'
-				},{
-					'name': '请选择分类',
-					'value': '',
-					'type': '',
-					'options': [],
-					'choicedOpt': '全部'
-				}]
-			};
-		};
-
-	};
-	var initFunc = function(){
-
-	};
-	var updateChart = function(){
-		$rootScope.objLayout.list.map(function(item, index){
-			switch (item.value){
-				case 'serviceStatus':
-					//当前客服状态
-					CallServ.getOnceData().then(function(rs){
-						var dataList = getServiceStatusList(rs.data);
-						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
-					});
-					break;
-				case '002':
-
-					break;
-				default:
-
-			};
-		});
-
-		setTimeout(function(){
-			updateChart();
-		}, 50000);
-	};
-	//当前客服状态
-	var getServiceStatusList = function(data){
-		var list = data.adminList || [];
-		var online = 0,busy = 0;
-		list.map(function(item){
-			if(item.status == 1){
-				online ++;
-			}else if(item.status == 2){
-				busy ++;
-			}else {};
-		});
-		list = [{
-			'name': '在线',
-			'value': online
-		},{
-			'name': '忙碌',
-			'value': busy
-		}];
-		return list;
-	};
-	var getConfig = function(){
-		//获取配置项
-		//$rootScope.objLayout.number = 4;  layout
-		// initChart();
-		updateChart();
-	};
-
-
-
-
-	var init = function(){
-		initParams();
-		initFunc();
-		getConfig();
-	};
-	init();
-}]);
-
 angular.module("zc").controller("SettingsCtrl",[function(){
 	
 }]);
@@ -142,14 +52,14 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 				type: 'pie'
 			},
 			{
-				name: '通话统计',
-				value: '002',
-				type: 'line'
+				name: '当前会话统计',
+				value: 'currentConversation',
+				type: 'bar'
 			},
 			{
 				name: '在线统计',
 				value: '003',
-				type: 'bar'
+				type: 'line'
 			}
 		];
 	};
@@ -245,3 +155,97 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 
 	init();
 }])
+
+angular.module("zc").controller("HomeCtrl", [function(){
+	
+}]);
+angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ','ChatServ',
+	function($scope,$rootScope,CallServ,ChatServ){
+
+	var initParams = function(){
+		if(!$rootScope.objLayout){
+			$rootScope.objLayout = {
+				'number': 2,
+				'list': [{
+					'name': '请选择分类',
+					'value': '',
+					'type': '',
+					'options': [],
+					'choicedOpt': '全部'
+				},{
+					'name': '请选择分类',
+					'value': '',
+					'type': '',
+					'options': [],
+					'choicedOpt': '全部'
+				}]
+			};
+		};
+
+	};
+	var initFunc = function(){
+
+	};
+	var updateChart = function(){
+		$rootScope.objLayout.list.map(function(item, index){
+			switch (item.value){
+				case 'serviceStatus':
+					//当前客服状态
+					ChatServ.getOnceData().then(function(rs){
+						var dataList = getServiceStatusList(rs.data);
+						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
+					});
+					break;
+				case 'currentConversation':
+					//当前会话统计
+					ChatServ.getOnceData().then(function(rs){
+						var dataList = getServiceStatusList(rs.data);
+						$scope.$broadcast('echarts.bar.render', item.uuid, dataList);
+					})
+					break;
+				default:
+
+			};
+		});
+
+		setTimeout(function(){
+			updateChart();
+		}, 10000);
+	};
+	//当前客服状态
+	var getServiceStatusList = function(data){
+		var list = data.adminList || [];
+		var online = 0,busy = 0;
+		list.map(function(item){
+			if(item.status == 1){
+				online ++;
+			}else if(item.status == 2){
+				busy ++;
+			}else {};
+		});
+		list = [{
+			'name': '在线',
+			'value': online
+		},{
+			'name': '忙碌',
+			'value': busy
+		}];
+		return list;
+	};
+	var getConfig = function(){
+		//获取配置项
+		//$rootScope.objLayout.number = 4;  layout
+		// initChart();
+		updateChart();
+	};
+
+
+
+
+	var init = function(){
+		initParams();
+		initFunc();
+		getConfig();
+	};
+	init();
+}]);

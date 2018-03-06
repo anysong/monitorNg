@@ -1,5 +1,5 @@
-angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ',
-	function($scope,$rootScope,CallServ){
+angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallServ','ChatServ',
+	function($scope,$rootScope,CallServ,ChatServ){
 
 	var initParams = function(){
 		if(!$rootScope.objLayout){
@@ -30,13 +30,17 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 			switch (item.value){
 				case 'serviceStatus':
 					//当前客服状态
-					CallServ.getOnceData().then(function(rs){
+					ChatServ.getOnceData().then(function(rs){
 						var dataList = getServiceStatusList(rs.data);
 						$scope.$broadcast('echarts.pie.render', item.uuid, dataList);
 					});
 					break;
-				case '002':
-
+				case 'currentConversation':
+					//当前会话统计
+					ChatServ.getOnceData().then(function(rs){
+						var dataList = getServiceStatusList(rs.data);
+						$scope.$broadcast('echarts.bar.render', item.uuid, dataList);
+					})
 					break;
 				default:
 
@@ -45,7 +49,7 @@ angular.module("zc").controller("HomeMonitorCtrl", ['$scope','$rootScope','CallS
 
 		setTimeout(function(){
 			updateChart();
-		}, 50000);
+		}, 10000);
 	};
 	//当前客服状态
 	var getServiceStatusList = function(data){

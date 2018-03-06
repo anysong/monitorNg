@@ -9,14 +9,14 @@ angular.module("zc").controller("SettingsMonitorCtrl", ['$scope','$rootScope',
 				type: 'pie'
 			},
 			{
-				name: '通话统计',
-				value: '002',
-				type: 'line'
+				name: '当前会话统计',
+				value: 'currentConversation',
+				type: 'bar'
 			},
 			{
 				name: '在线统计',
 				value: '003',
-				type: 'bar'
+				type: 'line'
 			}
 		];
 	};
