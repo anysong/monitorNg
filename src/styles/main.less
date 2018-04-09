@@ -3,7 +3,64 @@
 	height: 100%;
 	.ui-main {
 		height: 100%;
-		padding-bottom: 50px;
+		.zc-login {
+			width: 100%;
+			height: 100%;
+			background-color: #3D4966;
+			position: relative;
+			.zc-login-window {
+				width: 440px;
+				height: 190px;
+				background-color: white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -220px;
+				margin-top: -95px;
+				.window-header {
+					background-color: #1FCDCF;
+					width: 100%;
+					height: 50px;
+					line-height: 50px;
+					padding: 0 20px;
+					font-size: 16px;
+					color: white;
+				}
+				.window-body {
+					background-color: white;
+					width: 100%;
+					height: 140px;
+					padding: 20px 30px;
+					.window-body-title {
+						font-family: PingFangSC-Regular;
+						font-size: 16px;
+						color: #3D4966;
+						line-height: 18px;
+						margin-bottom: 20px;
+					}
+					.window-body-content {
+						&::after {
+							content: '';
+							height: 0;
+							visibility: hidden;
+							display: block;
+							clear: both;
+						}
+						.window-body-content-input {
+							float: left;
+							width: 260px;
+							height: 36px;
+							margin-right: 20px;
+						}
+						.window-body-content-btn {
+							float: left;
+							width: 100px;
+							height: 36px;
+						}
+					}
+				}
+			}
+		}
 		.ui-main-header {
 			.zc-main-header {
 				width: 100%;
@@ -29,7 +86,7 @@
 	}
 }
 
-// 左侧导航 
+// 左侧导航
 .zc-sidebar {
 	width: 50px;
 	height: 100%;
@@ -53,12 +110,3 @@
 		}
 	}
 }
-
-
-
-
-
-
-
-
-

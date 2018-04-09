@@ -1,14 +1,3 @@
 <div class="zc-main-body">
-	<div class="zc-sidebar">
-		<ul class="zc-sidebar-list">
-			<li class="zc-sidebar-list-li"
-				ng-click="stateGo(item)"
-				ng-class="{'active': activeSidebarItem == item.name}" 
-				ng-repeat="item in sidebarList track by $index">
-				<span class="zc-sidebar-list-li-name"
-					  ng-bind="item.title" ui-sref="item.sref"></span>
-			</li>
-		</ul>
-	</div>	
-	<div ui-view="zcMainBodyMain" class="ui-main-body-content"></div>
+	内容
 </div>

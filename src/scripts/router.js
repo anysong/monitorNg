@@ -1,10 +1,10 @@
 
 angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterProvider',
  function($locationProvider, $stateProvider, $urlRouterProvider){
- 	
+
  	// 需要配 <base href="/src/">
 	$locationProvider.html5Mode(true);
-	
+
 	var BaseRouterUrl = '/';
 
 	/*
@@ -15,8 +15,19 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 		.when('/', BaseRouterUrl + 'home')
 		.when('/home', '/home/monitor')
 		.otherwise('/')
-	
+
 	$stateProvider
+
+        /** login **/
+        .state('login', {
+            url: '/login',
+            views :{
+                'zcMain': {
+                    controller: 'LoginCtrl',
+                    templateUrl: 'views/login/index.html'
+                }
+            }
+        })
 
 	  	.state('zc', {
 	  		abstract: true,   //抽象模版
@@ -26,7 +37,7 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	  				controller: 'MainCtrl',
 	  				templateUrl: 'views/public/main.html'
 	  			}
-	  			
+
 	  		}
 	  	})
 	  	.state('zc.main', {
@@ -40,8 +51,6 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	  		}
 	  	})
 
-	  	/** home **/
-	  	
 	  	.state('zc.main.home', {
 	  		url: 'home',
 	  		views :{
@@ -51,35 +60,5 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	  			}
 	  		}
 	  	})
-	  	.state('zc.main.home.monitor', {
-	  		url: '/monitor',
-	  		views :{
-	  			'zcMainBodyMainContent': {
-	  				controller: 'HomeMonitorCtrl',
-	  				templateUrl: 'views/home/home-monitor.html'
-	  			}
-	  		}
-	  	})
 
-	  	/** settings **/
-
-	  	.state('zc.main.settings', {
-	  		url: 'settings',
-	  		views :{
-	  			'zcMainBodyMain': {
-	  				controller: 'SettingsCtrl',
-	  				templateUrl: 'views/settings/index.html'
-	  			}
-	  		}
-	  	})
-	  	.state('zc.main.settings.monitor', {
-	  		url: '/monitor',
-	  		views :{
-	  			'zcMainBodyMainContent': {
-	  				controller: 'SettingsMonitorCtrl',
-	  				templateUrl: 'views/settings/settings-monitor.html'
-	  			}
-	  		}
-	  	})
-	
 }]);

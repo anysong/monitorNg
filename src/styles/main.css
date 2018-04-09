@@ -4,7 +4,62 @@
 }
 .zc .ui-main {
   height: 100%;
-  padding-bottom: 50px;
+}
+.zc .ui-main .zc-login {
+  width: 100%;
+  height: 100%;
+  background-color: #3D4966;
+  position: relative;
+}
+.zc .ui-main .zc-login .zc-login-window {
+  width: 440px;
+  height: 190px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -220px;
+  margin-top: -95px;
+}
+.zc .ui-main .zc-login .zc-login-window .window-header {
+  background-color: #1FCDCF;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: white;
+}
+.zc .ui-main .zc-login .zc-login-window .window-body {
+  background-color: white;
+  width: 100%;
+  height: 140px;
+  padding: 20px 30px;
+}
+.zc .ui-main .zc-login .zc-login-window .window-body .window-body-title {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #3D4966;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+.zc .ui-main .zc-login .zc-login-window .window-body .window-body-content::after {
+  content: '';
+  height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+.zc .ui-main .zc-login .zc-login-window .window-body .window-body-content .window-body-content-input {
+  float: left;
+  width: 260px;
+  height: 36px;
+  margin-right: 20px;
+}
+.zc .ui-main .zc-login .zc-login-window .window-body .window-body-content .window-body-content-btn {
+  float: left;
+  width: 100px;
+  height: 36px;
 }
 .zc .ui-main .ui-main-header .zc-main-header {
   width: 100%;
