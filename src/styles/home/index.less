@@ -1,8 +1,230 @@
 .home {
 	width: 100%;
 	height: 100%;
-	.ui-home-content {
-		width: 100%;
-		height: 100%;
-	}
+	background-color: #EFF4F5;
+	padding: 10px;
+	.monitor-layout {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 110px;
+        min-height: 500px;
+        // min-width: 1500px;
+        .layout-params {
+            width: 100%;
+            height: 150px;
+            .no-data {
+                text-align: center;
+                font-size: 14px;
+                color: #8B98AD;
+                line-height: 150px;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+            }
+            ul {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                display: flex;
+                display: -webkit-flex;
+                justify-content:space-between;
+                li {
+                    width: 153px;
+                    width: 20%;
+                    min-width: 153px;
+                    height: 100%;
+                    margin: 0 5px;
+                    background-color: white;
+
+                    .params-name {
+                        text-align: center;
+                        margin-top: 46px;
+                        font-size: 14px;
+                        color: #3D4966;
+                        line-height: 18px;
+                    }
+                    .params-value {
+                        text-align: center;
+                        margin-top: 10px;
+                        font-size: 24px;
+                        color: #0DAEAF;
+                        line-height: 24px;
+                    }
+                    &:first-of-type {
+                        margin-left: 0;
+                    }
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        .layout-charts {
+            width: 100%;
+            height: 100%;
+            margin-top: 10px;
+            .one-charts {
+                width: 100%;
+                height: 100%;
+                .one-charts-wrap {
+                    width: 100%;
+                    height: 100%;
+                    background-color: white;
+                }
+            }
+            .two-charts {
+                width: 100%;
+                height: 100%;
+                .charts-top {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-top-li {
+                        width: 50%;
+                        height: 100%;
+                        background-color: white;
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+            .three-charts {
+                width: 100%;
+                height: 100%;
+                .charts-top {
+                    width: 100%;
+                    height: 50%;
+                    padding: 0;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-top-li {
+                        width: 50%;
+                        height: 100%;
+                        background-color: white;
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+                .charts-bottom {
+                    width: 100%;
+                    height: 50%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-bottom-li {
+                        width: 100%;
+                        height: 100%;
+                        background-color: white;
+                    }
+                }
+            }
+            .four-charts {
+                width: 100%;
+                height: 100%;
+                .charts-top {
+                    width: 100%;
+                    height: 50%;
+                    padding: 0;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-top-li {
+                        width: 50%;
+                        height: 100%;
+                        background-color: white;
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+                .charts-bottom {
+                    width: 100%;
+                    height: 50%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-bottom-li {
+                        width: 50%;
+                        height: 100%;
+                        background-color: white;
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+            .five-charts {
+                width: 100%;
+                height: 100%;
+                .charts-top {
+                    width: 100%;
+                    height: 50%;
+                    padding: 0;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-top-li {
+                        width: 33%;
+                        height: 100%;
+                        margin-right: 10px;
+                        background-color: white;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                .charts-bottom {
+                    width: 100%;
+                    height: 50%;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    .charts-bottom-li {
+                        width: 50%;
+                        height: 100%;
+                        background-color: white;
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+            .no-data {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                .no-data-icon {
+
+                }
+                .no-data-text {
+                    position: absolute;
+                    top: 45%;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 14px;
+                    color: #8B98AD;
+                    &::before {
+                        content: '';
+                        background: url("../images/sprite/jui.png");
+                        background-position: -180px 0;
+                        width: 50px;
+                        height: 65px;
+                        display: block;
+                        margin: 0 auto;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+    }
 }

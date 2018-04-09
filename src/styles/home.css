@@ -1,8 +1,225 @@
 .home {
   width: 100%;
   height: 100%;
+  background-color: #EFF4F5;
+  padding: 10px;
 }
-.home .ui-home-content {
+.home .monitor-layout {
   width: 100%;
   height: 100%;
+  padding-bottom: 110px;
+  min-height: 500px;
+}
+.home .monitor-layout .layout-params {
+  width: 100%;
+  height: 150px;
+}
+.home .monitor-layout .layout-params .no-data {
+  text-align: center;
+  font-size: 14px;
+  color: #8B98AD;
+  line-height: 150px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-params ul {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-params ul li {
+  width: 153px;
+  width: 20%;
+  min-width: 153px;
+  height: 100%;
+  margin: 0 5px;
+  background-color: white;
+}
+.home .monitor-layout .layout-params ul li .params-name {
+  text-align: center;
+  margin-top: 46px;
+  font-size: 14px;
+  color: #3D4966;
+  line-height: 18px;
+}
+.home .monitor-layout .layout-params ul li .params-value {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 24px;
+  color: #0DAEAF;
+  line-height: 24px;
+}
+.home .monitor-layout .layout-params ul li:first-of-type {
+  margin-left: 0;
+}
+.home .monitor-layout .layout-params ul li:last-of-type {
+  margin-right: 0;
+}
+.home .monitor-layout .layout-charts {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+.home .monitor-layout .layout-charts .one-charts {
+  width: 100%;
+  height: 100%;
+}
+.home .monitor-layout .layout-charts .one-charts .one-charts-wrap {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .two-charts {
+  width: 100%;
+  height: 100%;
+}
+.home .monitor-layout .layout-charts .two-charts .charts-top {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .two-charts .charts-top .charts-top-li {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .two-charts .charts-top .charts-top-li:first-child {
+  margin-right: 10px;
+}
+.home .monitor-layout .layout-charts .three-charts {
+  width: 100%;
+  height: 100%;
+}
+.home .monitor-layout .layout-charts .three-charts .charts-top {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .three-charts .charts-top .charts-top-li {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .three-charts .charts-top .charts-top-li:first-child {
+  margin-right: 10px;
+}
+.home .monitor-layout .layout-charts .three-charts .charts-bottom {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .three-charts .charts-bottom .charts-bottom-li {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .four-charts {
+  width: 100%;
+  height: 100%;
+}
+.home .monitor-layout .layout-charts .four-charts .charts-top {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .four-charts .charts-top .charts-top-li {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .four-charts .charts-top .charts-top-li:first-child {
+  margin-right: 10px;
+}
+.home .monitor-layout .layout-charts .four-charts .charts-bottom {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .four-charts .charts-bottom .charts-bottom-li {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .four-charts .charts-bottom .charts-bottom-li:first-child {
+  margin-right: 10px;
+}
+.home .monitor-layout .layout-charts .five-charts {
+  width: 100%;
+  height: 100%;
+}
+.home .monitor-layout .layout-charts .five-charts .charts-top {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .five-charts .charts-top .charts-top-li {
+  width: 33%;
+  height: 100%;
+  margin-right: 10px;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .five-charts .charts-top .charts-top-li:last-child {
+  margin-right: 0;
+}
+.home .monitor-layout .layout-charts .five-charts .charts-bottom {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.home .monitor-layout .layout-charts .five-charts .charts-bottom .charts-bottom-li {
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .five-charts .charts-bottom .charts-bottom-li:first-child {
+  margin-right: 10px;
+}
+.home .monitor-layout .layout-charts .no-data {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.home .monitor-layout .layout-charts .no-data .no-data-text {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #8B98AD;
+}
+.home .monitor-layout .layout-charts .no-data .no-data-text::before {
+  content: '';
+  background: url("../images/sprite/jui.png");
+  background-position: -180px 0;
+  width: 50px;
+  height: 65px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }

@@ -1,3 +1,90 @@
 <div class="home">
-	3332323232
+	<div class="monitor-layout">
+        <div class="layout-params">
+            <ul ng-if="aParamsList.length != 0">
+                <li ng-repeat="item in aParamsList track by $index">
+                    <div class="params-name" ng-show="item.name !== '请选择'" ng-bind="item.name"></div>
+                    <div class="params-value" ng-show="item.name !== '请选择'" ng-bind="item.value"></div>
+                    <!-- <div zc-params-monitor params-name="item.name" params-type="curMonitor.monitorCategory"></div> -->
+                </li>
+            </ul>
+            <div class="no-data" ng-if="aParamsList.length == 0">
+                暂无相关数据
+            </div>
+        </div>
+        <div class="layout-charts">
+            <div class="no-data" ng-if="aChartsList.length == 0">
+                <p class="no-data-text">暂无相关图表</p>
+            </div>
+            <div class="one-charts" ng-if="aChartsList.length == 1">
+                <div class="one-charts-wrap">
+                    <div zc-chart-monitor chart-name="aChartsList[0].name" chart-type="curMonitor.monitorCategory"></div>
+                </div>
+            </div>
+            <div class="two-charts" ng-if="aChartsList.length == 2">
+                <ul class="charts-top">
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[0].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[1].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="three-charts" ng-if="aChartsList.length == 3">
+                <ul class="charts-top">
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[0].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[1].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+                <ul class="charts-bottom">
+                    <li class="charts-bottom-li">
+                        <div zc-chart-monitor chart-name="aChartsList[2].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="four-charts" ng-if="aChartsList.length == 4">
+                <ul class="charts-top">
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[0].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[1].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+                <ul class="charts-bottom">
+                    <li class="charts-bottom-li">
+                        <div zc-chart-monitor chart-name="aChartsList[2].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-bottom-li">
+                        <div zc-chart-monitor chart-name="aChartsList[3].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="five-charts" ng-if="aChartsList.length == 5">
+                <ul class="charts-top">
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[0].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[1].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-top-li">
+                        <div zc-chart-monitor chart-name="aChartsList[2].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+                <ul class="charts-bottom">
+                    <li class="charts-bottom-li">
+                        <div zc-chart-monitor chart-name="aChartsList[3].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                    <li class="charts-bottom-li">
+                        <div zc-chart-monitor chart-name="aChartsList[4].name" chart-type="curMonitor.monitorCategory"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,5 +1,5 @@
 angular.module('zc').factory('BaseServ', ['$q','$http',function($q,$http){
-	
+
 	var that = {};
 
 	var query = function(data){
@@ -14,16 +14,16 @@ angular.module('zc').factory('BaseServ', ['$q','$http',function($q,$http){
 		/** deUrl处理url **/
 		function dealUrl(){
 			// chat/data/getOnceData.action
-			
+
 			if(data.ChatServ){
-				return '/' + data.url;
+				return '/' + data.urlServ;
 			}else {
-				return data.url + '/4';
+				return data.urlServ + '/4';
 			};
 		};
 
 		if(opt.method === 'GET'){
-			
+
 			opt.params = data.params || {};
 			opt.headers['temp-id'] = token;
 
@@ -35,7 +35,7 @@ angular.module('zc').factory('BaseServ', ['$q','$http',function($q,$http){
             return deferred.promise;
 
 		}else if(opt.method === 'POST'){
-			
+
 			var ajaxObj = $.ajax({
 				type: 'POST',
 				url: dealUrl(),

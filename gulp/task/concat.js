@@ -10,9 +10,9 @@ gulp.task('concat-controllers', function(){
 	pipe(gulp.dest(tar));
 })
 
-gulp.task('concat-directives', function(){
-	gulp.src('./src/scripts/directives/**/*.js').
-	pipe(concat('directives.js')).
+gulp.task('concat-directive', function(){
+	gulp.src('./src/scripts/directive/**/*.js').
+	pipe(concat('directive.js')).
 	on('error', notify.onError("Error: <%= error.message %>")).
 	pipe(gulp.dest(tar));
 })
