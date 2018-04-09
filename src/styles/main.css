@@ -64,7 +64,7 @@
 .zc .ui-main .ui-main-header .zc-main-header {
   width: 100%;
   height: 50px;
-  background-color: #ccc;
+  background-color: #3D4966;
 }
 .zc .ui-main .ui-main-body {
   width: 100%;
@@ -79,7 +79,7 @@
 }
 .zc .ui-main .ui-main-body .zc-main-body .ui-main-body-content {
   height: 100%;
-  padding-left: 50px;
+  width: 100%;
 }
 .zc-sidebar {
   width: 50px;

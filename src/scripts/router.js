@@ -12,8 +12,7 @@ angular.module('zc').config(['$locationProvider','$stateProvider','$urlRouterPro
 	*/
 
 	$urlRouterProvider
-		.when('/', BaseRouterUrl + 'home')
-		.when('/home', '/home/monitor')
+		.when('/', BaseRouterUrl + 'login')
 		.otherwise('/')
 
 	$stateProvider
